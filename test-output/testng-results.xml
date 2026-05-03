@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-05-03T17:40:53 EDT" name="Default suite" finished-at="2026-05-03T17:40:57 EDT" duration-ms="3872">
+    <groups>
+    </groups>
+    <test started-at="2026-05-03T17:40:53 EDT" name="Default test" finished-at="2026-05-03T17:40:57 EDT" duration-ms="3872">
+      <class name="com.qa.stripe_tests.StripePaymentTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.qa.stripe_tests.StripePaymentTest@10e31a9a]" started-at="2026-05-03T17:40:53 EDT" name="setup" finished-at="2026-05-03T17:40:54 EDT" duration-ms="381" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="createPaymentIntent()[pri:0, instance:com.qa.stripe_tests.StripePaymentTest@10e31a9a]" started-at="2026-05-03T17:40:54 EDT" name="createPaymentIntent" finished-at="2026-05-03T17:40:56 EDT" duration-ms="2256" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createPaymentIntent -->
+        <test-method signature="createPaymentIntent_InvalidAmount()[pri:0, instance:com.qa.stripe_tests.StripePaymentTest@10e31a9a]" started-at="2026-05-03T17:40:56 EDT" name="createPaymentIntent_InvalidAmount" finished-at="2026-05-03T17:40:56 EDT" duration-ms="475" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createPaymentIntent_InvalidAmount -->
+        <test-method signature="createPaymentIntent_InvalidApiKey()[pri:0, instance:com.qa.stripe_tests.StripePaymentTest@10e31a9a]" started-at="2026-05-03T17:40:56 EDT" name="createPaymentIntent_InvalidApiKey" finished-at="2026-05-03T17:40:57 EDT" duration-ms="307" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createPaymentIntent_InvalidApiKey -->
+        <test-method signature="createPaymentIntent_MissingAmount()[pri:0, instance:com.qa.stripe_tests.StripePaymentTest@10e31a9a]" started-at="2026-05-03T17:40:57 EDT" name="createPaymentIntent_MissingAmount" finished-at="2026-05-03T17:40:57 EDT" duration-ms="408" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createPaymentIntent_MissingAmount -->
+      </class> <!-- com.qa.stripe_tests.StripePaymentTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
