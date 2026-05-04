@@ -1,8 +1,8 @@
-# Maven target folder
-/target/
+# Build output
+target/
 
-# Compiled class files
-*.class
+# TestNG reports
+test-output/
 
 # Logs
 *.log
@@ -15,3 +15,6 @@
 # OS files
 .DS_Store
 Thumbs.db
+
+# Compiled classes
+*.class
