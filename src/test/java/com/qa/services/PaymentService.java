@@ -1,6 +1,6 @@
-package services;
+package com.qa.services;
 
-import config.Config;
+import com.qa.config.Config;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 

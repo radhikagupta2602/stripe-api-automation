@@ -1,4 +1,4 @@
-package testdata;
+package com.qa.testdata;
 
 public class PaymentTestData {
 	

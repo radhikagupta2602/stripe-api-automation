@@ -1,13 +1,12 @@
 package com.qa.stripe_tests;
 
+import com.qa.base.BaseTest;
+import com.qa.services.PaymentService;
+import com.qa.testdata.PaymentTestData;
+import com.qa.utils.ValidationUtils;
+import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import com.qa.base.BaseTest;
-import io.restassured.response.Response;
-import services.PaymentService;
-import testdata.PaymentTestData;
-import utils.ValidationUtils;
 
 public class StripePaymentTest extends BaseTest {
 	

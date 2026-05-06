@@ -1,8 +1,7 @@
-package utils;
-
-import org.testng.Assert;
+package com.qa.utils;
 
 import io.restassured.response.Response;
+import org.testng.Assert;
 
 public class ValidationUtils {
 	

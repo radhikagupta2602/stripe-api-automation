@@ -18,3 +18,5 @@ Thumbs.db
 
 # Compiled classes
 *.class
+
+.idea/
