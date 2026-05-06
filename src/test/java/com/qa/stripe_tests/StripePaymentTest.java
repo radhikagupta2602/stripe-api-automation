@@ -13,7 +13,7 @@ public class StripePaymentTest extends BaseTest {
 	PaymentService paymentService = new PaymentService();
 	
     @Test
-    public void createPaymentIntent() {
+    public void shouldCreatePaymentIntentWithValidData() {
     	
     	Response response = paymentService.createPaymentIntent(
     			PaymentTestData.VALID_AMOUNT,
@@ -25,7 +25,7 @@ public class StripePaymentTest extends BaseTest {
     }
     
     @Test
-    public void createPaymentIntent_InvalidAmount() {
+    public void shouldReturn400ForInvalidAmount() {
 
         Response response = paymentService.createPaymentIntent(
        
@@ -37,7 +37,7 @@ public class StripePaymentTest extends BaseTest {
     }
     
     @Test
-    public void createPaymentIntent_InvalidApiKey() {
+    public void shouldReturn401ForInvalidApiKey() {
 
         String invalidKey = "sk_test_invalid123";
 
@@ -55,7 +55,7 @@ public class StripePaymentTest extends BaseTest {
     
     
     @Test
-    public void createPaymentIntent_MissingAmount() {
+    public void shouldReturn400WhenAmountMissing() {
 
         Response response = paymentService.createPaymentIntentWithoutAmount(
                 PaymentTestData.VALID_CURRENCY
