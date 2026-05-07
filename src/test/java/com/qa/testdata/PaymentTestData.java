@@ -7,4 +7,10 @@ public class PaymentTestData {
 
     public static String VALID_CURRENCY = "usd";
 
+    public static Object[][] invalidAmountData() {
+        return new Object[][]{
+                {"-100", "usd"},
+                {"0", "usd"}
+        };
+    }
 }
