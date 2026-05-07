@@ -5,12 +5,15 @@ import com.qa.services.PaymentService;
 import com.qa.testdata.PaymentTestData;
 import com.qa.utils.ValidationUtils;
 import io.restassured.response.Response;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class StripePaymentTest extends BaseTest {
-	
+
+    private static final Logger logger = LogManager.getLogger(StripePaymentTest.class);
 	PaymentService paymentService = new PaymentService();
 
     @DataProvider(name = "invalidAmountData")
@@ -20,6 +23,8 @@ public class StripePaymentTest extends BaseTest {
 
     @Test(description = "Creates payment intent with valid amount and currency")
     public void shouldCreatePaymentIntentWithValidData() {
+
+        logger.info("Starting positive test: shouldCreatePaymentIntentWithValidData");
     	
     	Response response = paymentService.createPaymentIntent(
     			PaymentTestData.VALID_AMOUNT,
@@ -36,8 +41,7 @@ public class StripePaymentTest extends BaseTest {
     )
     public void shouldReturn400ForInvalidAmount(String amount, String currency) {
 
-        System.out.println("Running invalid amount test with amount=" + amount + ", currency=" + currency);
-
+        logger.info("Running invalid amount test with amount={}, currency={}", amount, currency);
 
         Response response = paymentService.createPaymentIntent(amount, currency);
 
