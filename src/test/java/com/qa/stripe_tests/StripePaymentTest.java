@@ -6,13 +6,19 @@ import com.qa.testdata.PaymentTestData;
 import com.qa.utils.ValidationUtils;
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class StripePaymentTest extends BaseTest {
 	
 	PaymentService paymentService = new PaymentService();
-	
-    @Test
+
+    @DataProvider(name = "invalidAmountData")
+    public Object[][] invalidAmountData() {
+        return PaymentTestData.invalidAmountData();
+    }
+
+    @Test(description = "Creates payment intent with valid amount and currency")
     public void shouldCreatePaymentIntentWithValidData() {
     	
     	Response response = paymentService.createPaymentIntent(
@@ -23,20 +29,22 @@ public class StripePaymentTest extends BaseTest {
     	ValidationUtils.validateStatusCode(response, 200);
         ValidationUtils.validatePaymentSuccess(response);
     }
-    
-    @Test
-    public void shouldReturn400ForInvalidAmount() {
 
-        Response response = paymentService.createPaymentIntent(
-       
-        		PaymentTestData.INVALID_AMOUNT,
-        		PaymentTestData.VALID_CURRENCY
-        		);
+    @Test(
+            dataProvider = "invalidAmountData",
+            description = "Validates bad request for invalid amount values"
+    )
+    public void shouldReturn400ForInvalidAmount(String amount, String currency) {
+
+        System.out.println("Running invalid amount test with amount=" + amount + ", currency=" + currency);
+
+
+        Response response = paymentService.createPaymentIntent(amount, currency);
 
         ValidationUtils.validateErrorResponse(response);
     }
-    
-    @Test
+
+    @Test(description = "Creates payment intent with valid amount and currency")
     public void shouldReturn401ForInvalidApiKey() {
 
         String invalidKey = "sk_test_invalid123";
@@ -52,9 +60,9 @@ public class StripePaymentTest extends BaseTest {
         String errorMessage = response.jsonPath().getString("error.message");
         Assert.assertTrue(errorMessage.toLowerCase().contains("invalid api key"));
     }
-    
-    
-    @Test
+
+
+    @Test(description = "Creates payment intent with valid amount and currency")
     public void shouldReturn400WhenAmountMissing() {
 
         Response response = paymentService.createPaymentIntentWithoutAmount(
