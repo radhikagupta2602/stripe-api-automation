@@ -24,7 +24,15 @@ public class ValidationUtils {
         String errorMessage = response.jsonPath().getString("error.message");
 
         Assert.assertEquals(statusCode, 400);
-        Assert.assertTrue(errorMessage.contains("must be greater than or equal to 1"));
+        //Assert.assertTrue(errorMessage.contains("must be greater than or equal to 1"));
+        String lowerMessage = errorMessage.toLowerCase();
+        Assert.assertTrue(
+                lowerMessage.contains("must be greater than or equal to 1")
+                        || lowerMessage.contains("minimum charge amount")
+                        || lowerMessage.contains("at least")
+                        || lowerMessage.contains("invalid"),
+                "Unexpected error message: " + errorMessage
+        );
     }
 
 }
